@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hogwarts House Points</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1 class="title-main">Hogwarts House Points</h1>
+      <p class="hint">Click and hold above any house tube to pour sand. Press <code>R</code> to reset all.</p>
+
+      <div id="tubes" class="tubes">
+        <div class="tube-wrapper">
+          <div class="pour-zone"></div>
+          <h2 class="house-name">Gryffindor</h2>
+          <div id="tube-0" class="tube tube-gryffindor">
+            <canvas id="sand-canvas-0" class="sand-canvas" width="120" height="600"></canvas>
+          </div>
+          <div id="fill-0" class="fill-percentage">0.00%</div>
+        </div>
+        <div class="tube-wrapper">
+          <div class="pour-zone"></div>
+          <h2 class="house-name">Slytherin</h2>
+          <div id="tube-1" class="tube tube-slytherin">
+            <canvas id="sand-canvas-1" class="sand-canvas" width="120" height="600"></canvas>
+          </div>
+          <div id="fill-1" class="fill-percentage">0.00%</div>
+        </div>
+        <div class="tube-wrapper">
+          <div class="pour-zone"></div>
+          <h2 class="house-name">Hufflepuff</h2>
+          <div id="tube-2" class="tube tube-hufflepuff">
+            <canvas id="sand-canvas-2" class="sand-canvas" width="120" height="600"></canvas>
+          </div>
+          <div id="fill-2" class="fill-percentage">0.00%</div>
+        </div>
+        <div class="tube-wrapper">
+          <div class="pour-zone"></div>
+          <h2 class="house-name">Ravenclaw</h2>
+          <div id="tube-3" class="tube tube-ravenclaw">
+            <canvas id="sand-canvas-3" class="sand-canvas" width="120" height="600"></canvas>
+          </div>
+          <div id="fill-3" class="fill-percentage">0.00%</div>
+        </div>
+      </div>
+
+      <footer class="footer">Visualization of House Point</footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
