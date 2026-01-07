@@ -1,6 +1,4 @@
-# Hogwarts House Points - Sand Simulator
-
-A photorealistic sand-pouring visualization featuring four magical gemstone tubes representing Hogwarts houses (Gryffindor, Slytherin, Hufflepuff, Ravenclaw). Click and hold above any tube to pour shimmering sand grains that fall and settle naturally with per-grain physics variation.
+# Hogwarts House Points
 
 ## Features
 
