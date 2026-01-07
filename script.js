@@ -260,4 +260,54 @@
   }
 
   requestAnimationFrame(loop);
+
+  // Award form handler
+  const awardForm = document.getElementById('award-form');
+  const houseSelect = document.getElementById('house-select');
+  const pointsInput = document.getElementById('points-input');
+
+  awardForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const houseId = parseInt(houseSelect.value);
+    const percentToAdd = parseFloat(pointsInput.value);
+    
+    if (percentToAdd > 0 && houseId >= 0 && houseId < tubes.length) {
+      const tube = tubes[houseId];
+      
+      // Calculate current fill
+      let currentSandCount = 0;
+      for (let i = 0; i < W * H; i++) {
+        if (tube.grid[i] === SAND) currentSandCount++;
+      }
+      
+      // Calculate target fill
+      const totalCells = W * H;
+      const currentPercent = (currentSandCount / totalCells) * 100;
+      const targetPercent = Math.min(100, currentPercent + percentToAdd);
+      const targetCells = Math.round((targetPercent / 100) * totalCells);
+      const grainsToAdd = Math.max(0, targetCells - currentSandCount);
+      
+      if (grainsToAdd === 0) return;
+      
+      // Add grains spread across the top width
+      let grainsAdded = 0;
+      const addInterval = setInterval(() => {
+        if (grainsAdded >= grainsToAdd) {
+          clearInterval(addInterval);
+          return;
+        }
+        
+        // Add grains in batches
+        const batchSize = Math.min(20, grainsToAdd - grainsAdded);
+        for (let i = 0; i < batchSize; i++) {
+          const xGrid = Math.floor(Math.random() * W);
+          emitSandAtX(tube, xGrid, 1);
+        }
+        grainsAdded += batchSize;
+      }, 50);
+      
+      // Reset form
+      pointsInput.value = '5';
+    }
+  });
 })();
